@@ -26,7 +26,11 @@ def has_symbol(password):
     return any(c in string.punctuation for c in password)
 
 def validate_password(password):
-    return has_uppercase(password) and has_number(password) and has_symbol(password)
+    return has_uppercase(
+        has_uppercase(password) and
+        has_number(password) and
+        has_symbol(password)
+    )
 
 def generate_secure_password(length=12):
     while True:
